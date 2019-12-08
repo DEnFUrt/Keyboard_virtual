@@ -65,6 +65,7 @@ const arrKeyControls = [
         result: (control) => control.addEventListener('click', function() {
             lang = 'en';
             renderKeyboard(keyboard, keysEng);
+            targetInput.focus();
             }),
     },
 
@@ -73,6 +74,7 @@ const arrKeyControls = [
         result: (control) => control.addEventListener('click', function() {
             lang = 'ru';
             renderKeyboard(keyboard, keysRus);
+            targetInput.focus();
             })
     },
 
@@ -80,6 +82,7 @@ const arrKeyControls = [
         keyControl: '☺',
         result: (control) => control.addEventListener('click', function() {
             renderKeyboard(keyboard, keysEmoji);
+            targetInput.focus();
             })
     },
     
@@ -87,6 +90,7 @@ const arrKeyControls = [
         keyControl: '♯',
         result: (control) => control.addEventListener('click', function() {
             renderKeyboard(keyboard, keysSimbol);
+            targetInput.focus();
             })
     },
 
@@ -95,6 +99,7 @@ const arrKeyControls = [
         result: (control) => control.addEventListener('click', function() {
             lang === 'ru' ? renderKeyboard(keyboard, keysRusUpper) :
                 renderKeyboard(keyboard, keysEngUpper); 
+                targetInput.focus();
             })
     },
 
@@ -103,6 +108,7 @@ const arrKeyControls = [
         result: (control) => control.addEventListener('click', function() {
             lang === 'ru' ? renderKeyboard(keyboard, keysRus) :
                 renderKeyboard(keyboard, keysEng); 
+                targetInput.focus();
             })
     },
 
@@ -111,6 +117,7 @@ const arrKeyControls = [
         result: (control) => control.addEventListener('click', function() {
             lang === 'ru' ? renderKeyboard(keyboard, keysRus) :
                 renderKeyboard(keyboard, keysEng); 
+                targetInput.focus();
             })
     },
 
@@ -130,6 +137,7 @@ const arrKeyControls = [
                 textAlert += `Строка ${i + 1} - ${inputs[i].value }` + '\r'
             }
             alert(textAlert); 
+            targetInput.focus();
             })
     },
 ]
