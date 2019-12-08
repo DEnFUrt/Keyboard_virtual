@@ -1,4 +1,5 @@
 let targetInput = inputs[0];
+let lang = 'ru';
 
 for (let i = 0; i < inputs.length; i++) {
     const input = inputs[i];
