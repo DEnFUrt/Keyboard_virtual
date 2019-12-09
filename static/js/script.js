@@ -3,7 +3,7 @@ let arrInputValue = localStorage.getItem('arrInputValue') ?
     JSON.parse(localStorage.getItem('arrInputValue')) : [];
 let lang = setLang();
 
-console.table(localStorage);
+//console.table(localStorage);
 
 for (let i = 0; i < inputs.length; i++) {
     const input = inputs[i];

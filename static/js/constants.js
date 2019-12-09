@@ -142,7 +142,7 @@ const arrKeyControls = [
                 inputsValue.push(inputs[i].value);
             }
             alert(textAlert); 
-            console.table(inputsValue);
+            //console.table(inputsValue);
             localStorage.setItem('arrInputValue', JSON.stringify(inputsValue));
 
             targetInput.focus();
