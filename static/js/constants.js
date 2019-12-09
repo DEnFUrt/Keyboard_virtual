@@ -65,7 +65,6 @@ const arrKeyControls = [
         result: (control) => control.addEventListener('click', function() {
             //Lang = 'en';
             localStorage.setItem('lang','en');
-            console.log(localStorage);
             renderKeyboard(keyboard, keysEng);
             targetInput.focus();
             }),
@@ -76,7 +75,6 @@ const arrKeyControls = [
         result: (control) => control.addEventListener('click', function() {
             //lang = 'ru';
             localStorage.setItem('lang','ru');
-            console.log(localStorage);
             renderKeyboard(keyboard, keysRus);
             targetInput.focus();
             })
@@ -138,14 +136,14 @@ const arrKeyControls = [
         result: (control) => control.addEventListener('click', function() {
             let textAlert = `Вы ввели следующие данные: ` + '\r';
             let inputsValue = [];
+            
             for(i = 0; i < inputs.length; i++) {
                 textAlert += `Строка ${i + 1} \"${inputs[i].placeholder}\" - ${inputs[i].value }` + '\r'
-                inputsValue[i] = inputs[i].value;
+                inputsValue.push(inputs[i].value);
             }
-            
             alert(textAlert); 
-
-            localStorage.setItem('arrInputValue', JSON.stringify(arrInputValue));
+            console.table(inputsValue);
+            localStorage.setItem('arrInputValue', JSON.stringify(inputsValue));
 
             targetInput.focus();
             })

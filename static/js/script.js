@@ -1,20 +1,26 @@
 let targetInput = inputs[0];
+let arrInputValue = localStorage.getItem('arrInputValue') ?
+    JSON.parse(localStorage.getItem('arrInputValue')) : [];
+let lang = setLang();
 
-let arrInputValue = localStorage.getItem('arrInputValue') ? JSON.parse(localStorage.getItem('arrInputValue')) : [];
-
-let  lang = setLang();
-console.log(`initial lang ${lang}`);
-
-function setLang() {
-   return localStorage.getItem('lang') ? localStorage.getItem('lang') : 'ru';
-}
+console.table(localStorage);
 
 for (let i = 0; i < inputs.length; i++) {
     const input = inputs[i];
 
+    input.value = arrInputValue[i] ? arrInputValue[i] : '';
+
     input.addEventListener('focus', function () {
         targetInput = input;
     })
+}
+
+/* for (i = 0; i < inputs.length; i++) {
+    arrInputValue[i] ? inputs[i].value = arrInputValue[i] : '';
+} */
+
+function setLang() {
+    return localStorage.getItem('lang') ? localStorage.getItem('lang') : 'ru';
 }
 
 function keyBind(control, key) {
@@ -32,8 +38,8 @@ function keyBind(control, key) {
 
 function renderKeyboard(container, keys) {
     container.innerHTML = '';
+
     lang = setLang();
-    console.log(`render ${lang}`);
 
     for (let i = 0; i < keys.length; i++) {
         const row = keys[i];
@@ -55,10 +61,6 @@ function renderKeyboard(container, keys) {
     }
 }
 
-for(i = 0; i < inputs.length; i++) {
-    inputs[i] = arrInputValue[i];
-}
-
 //renderKeyboard(keyboard, keysRus);
 lang === 'ru' ? renderKeyboard(keyboard, keysRus) :
-                renderKeyboard(keyboard, keysEng); 
+    renderKeyboard(keyboard, keysEng);
