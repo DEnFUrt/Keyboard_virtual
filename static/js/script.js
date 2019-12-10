@@ -61,12 +61,23 @@ function renderKeyboard(container, keys) {
     }
 }
 
+function setToggleClass(element, ...[togglesClass]) {
+    for (let toggleClass of togglesClass) {
+        element.classList.toggle(toggleClass);
+    }
+}
+
 //renderKeyboard(keyboard, keysRus);
 lang === 'ru' ? renderKeyboard(keyboard, keysRus) :
     renderKeyboard(keyboard, keysEng);
 
 keyboardOpen.addEventListener('click', (e) => {
-    keyboard.classList.toggle('keyboard-none');
-    keyboard.classList.toggle('slideUp');
-    //keyboardOpen.innerText = 'Закрыть';
+    if (!keyboard.classList.contains('slideDown') && !keyboard.classList.contains('slideUp')) {
+        setToggleClass(keyboard, ['slideUp']);
+    } else if (keyboard.classList.contains('slideUp')) {
+        setToggleClass(keyboard, ['slideUp', 'slideDown']);
+    } else {
+        setToggleClass(keyboard, ['slideDown', 'slideUp']);
+    }
+    e.currentTarget.innerText = 'Закрыть';
 });
