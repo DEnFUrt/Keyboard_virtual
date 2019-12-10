@@ -1,5 +1,6 @@
 const keyboard = document.getElementById('keyboard');
 const inputs = document.querySelectorAll('input[type="text"]');
+const keyboardOpen = document.getElementById('keyboardOpen');
 
 const keysRus = [
     ['Esc', 'ё', 1, 2, 3, 4, 5, 6, 7, 8, 9, 0],
