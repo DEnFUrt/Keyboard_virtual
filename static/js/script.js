@@ -3,8 +3,6 @@ let arrInputValue = localStorage.getItem('arrInputValue') ?
     JSON.parse(localStorage.getItem('arrInputValue')) : [];
 let lang = setLang();
 
-//console.table(localStorage);
-
 for (let i = 0; i < inputs.length; i++) {
     const input = inputs[i];
 
@@ -14,10 +12,6 @@ for (let i = 0; i < inputs.length; i++) {
         targetInput = input;
     })
 }
-
-/* for (i = 0; i < inputs.length; i++) {
-    arrInputValue[i] ? inputs[i].value = arrInputValue[i] : '';
-} */
 
 function setLang() {
     return localStorage.getItem('lang') ? localStorage.getItem('lang') : 'ru';
@@ -71,7 +65,7 @@ function setToggleClass(element, ...[togglesClass]) {
 lang === 'ru' ? renderKeyboard(keyboard, keysRus) :
     renderKeyboard(keyboard, keysEng);
 
-keyboardOpen.addEventListener('click', (e) => {
+keyboardVisible.addEventListener('click', (e) => {
     if (!keyboard.classList.contains('slideDown') && !keyboard.classList.contains('slideUp')) {
         setToggleClass(keyboard, ['slideUp']);
     } else if (keyboard.classList.contains('slideUp')) {
@@ -79,5 +73,6 @@ keyboardOpen.addEventListener('click', (e) => {
     } else {
         setToggleClass(keyboard, ['slideDown', 'slideUp']);
     }
-    e.currentTarget.innerText = 'Закрыть';
+    
+    setToggleClass(e.currentTarget, ['pressBtn']);
 });
