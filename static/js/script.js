@@ -75,4 +75,5 @@ keyboardVisible.addEventListener('click', (e) => {
     }
     
     setToggleClass(e.currentTarget, ['pressBtn']);
+    targetInput.focus();
 });
