@@ -55,7 +55,7 @@ function renderKeyboard(container, keys) {
     }
 }
 
-function setToggleClass(element, ...[togglesClass]) {
+function setToggleClass(element, togglesClass) {
     for (let toggleClass of togglesClass) {
         element.classList.toggle(toggleClass);
     }
