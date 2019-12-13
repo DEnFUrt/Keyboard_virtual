@@ -55,7 +55,7 @@ function renderKeyboard(container, keys) {
     }
 }
 
-function setToggleClass(element, ...[togglesClass]) {
+function setToggleClass(element, togglesClass) {
     for (let toggleClass of togglesClass) {
         element.classList.toggle(toggleClass);
     }
@@ -69,9 +69,9 @@ keyboardVisible.addEventListener('click', (e) => {
     if (!keyboard.classList.contains('slideDown') && !keyboard.classList.contains('slideUp')) {
         setToggleClass(keyboard, ['slideUp']);
     } else if (keyboard.classList.contains('slideUp')) {
-        setToggleClass(keyboard, ['slideUp', 'slideDown']);
-    } else {
         setToggleClass(keyboard, ['slideDown', 'slideUp']);
+    } else {
+        setToggleClass(keyboard, ['slideUp', 'slideDown']);
     }
     
     setToggleClass(e.currentTarget, ['pressBtn']);
